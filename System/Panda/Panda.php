@@ -8,7 +8,7 @@
 	/**
 	 * Singleton Class for the configuration of the MVC
 	 */
-	class Panda
+	class Panda extends Registry
 	{
 		
 		private static $_instance;	
@@ -21,6 +21,7 @@
 		private function __construct(array $configuration)
 		{
 			$this->registry = (object)$configuration;
+			spl_autoload_register(array($this, '_autoloader'), true, true);	
 		}		
 
 		/**
@@ -40,28 +41,22 @@
 		}
 
 		/**
-		 *
-		 * @return Panda 
-		 */
-		public function registerAutoloader()
-		{
-			spl_autoload_register(array($this, '_autoloader'), true, true);	
-			
-			return self::$_instance;		
-		}
-
-		/**
-		 *
+		 * autoloader method for loading classes and such
+		 * 
 		 * @param string $class
 		 * @return bool
 		 */
 		private function _autoloader($class)
 		{
 			$file = $this->registry->root . str_replace('\\', '/', $class) . '.php';
+			
+			echo '<pre>' . print_r(func_get_args(), 1) . '</pre>';
 			 
 			if(is_readable($file)){
 				return require_once $file;
 			}
+			
+			echo '<pre>' . print_r(func_get_args(), 1) . '</pre>';
 
 			throw new ClassNotFoundException('Could not find class: ' . $class . ' Resolved file path: ' . $file);			
 		}

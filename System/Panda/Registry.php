@@ -7,16 +7,32 @@
 
 		protected $registry;
 
+		/**
+		 *
+		 * @param string $name
+		 * @return mixed 
+		 */
 		public function __get($name)
 		{
 			return ($this->registry->$name) ? $this->registry->$name : null;
 		}
 
+		/**
+		 *
+		 * @param string $name
+		 * @param mixed $value
+		 * @return bool 
+		 */
 		public function __set($name, $value)
 		{
 			return $this->registry->$name = $value;
 		}
 
+		/**
+		 *
+		 * @param string $name
+		 * @return bool 
+		 */
 		public function __isset($name)
 		{
 			return isset($this->registry->$name);
