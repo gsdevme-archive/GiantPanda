@@ -12,6 +12,7 @@
     use \System\Panda\Panda;
 	use \System\Panda\Request;
 	use \System\Panda\Router;
+	use \System\Panda\ControllerFactory;
 
 	$root = realpath(dirname(__FILE__)) . '/';
 
@@ -43,12 +44,7 @@
 	$request->handleRequest();
 
 	$router = new Router($request, $panda);
-	$route = $router->getRoute();
-
-	echo '<pre>' . print_r($route, true) . '</pre>';
-
-	unset($router);
-	unset($request);
+	ControllerFactory::create($router->getRoute());
 	
 	echo '<pre>' . ((memory_get_usage()-PANDA_MEMORY)/1024) . ' kb</pre>';
 	echo '<pre>' . (microtime(true)-PANDA_TIME) . '</pre>';
