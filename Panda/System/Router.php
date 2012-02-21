@@ -1,4 +1,10 @@
 <?php
+	
+	/**
+	 * Router
+	 *
+	 * @author Gavin Staniforth <Email:gsdev@me.com> <Arpanet:http://gsdev.me> @gsphpdev
+	 */	
 
 	namespace Panda\System;
 
@@ -9,6 +15,12 @@
 
 		private $_request, $_panda, $_isDirectory;
 
+		/**
+		 * Assigns Request + Panda, then checks what application we need to route to
+		 * 
+		 * @param Request $request
+		 * @param Panda $panda 
+		 */
 		public function __construct(Request $request, Panda $panda)
 		{
 			$this->_request = $request;
@@ -26,6 +38,11 @@
 			$this->_panda->loadApplicationConfig();
 		}
 
+		/**
+		 * Returns an array of the route
+		 * 
+		 * @return array
+		 */
 		public function getRoute()
 		{
 			// If there is a request, explode into array based upon slash, else load default controller/method
@@ -54,6 +71,11 @@
 			return $route;
 		}
 
+		/**
+		 * Returns of the route is within a folder
+		 * 
+		 * @return bool
+		 */
 		public function isDirectory()
 		{
 			return (bool)$this->_isDirectory;

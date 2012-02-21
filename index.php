@@ -6,7 +6,14 @@
 	/**
 	 * Index.php the target for our web server.
 	 *
+	 * In terms of license to use the Framework, use it as you want. 
+	 * If you use it please send us a tweet it wil make my day
+	 *
+	 * Oh also don't sell my framework unless you want kittens to die
+	 *
 	 * @author Gavin Staniforth <Email:gsdev@me.com> <Arpanet:http://gsdev.me> @gsphpdev
+	 *
+	 * @contributors -
 	 */
 	use \Panda\System\Panda;
 	use \Panda\System\Request;
