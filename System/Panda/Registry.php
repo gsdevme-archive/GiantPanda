@@ -5,7 +5,7 @@
 	/**
 	 * @abstract
 	 * Registry class, which provides methods for getting, settings and isseting registry values
-	 */	
+	 */
 	abstract class Registry
 	{
 
@@ -41,4 +41,5 @@
 		{
 			return isset($this->registry->$name);
 		}
+
 	}

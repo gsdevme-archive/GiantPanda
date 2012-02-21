@@ -77,11 +77,11 @@
 		 */
 		private function _commandRequest()
 		{
-			if(isset($_SERVER['argv'][1])){
-				$this->_request = $_SERVER['argv'][1];				
+			if (isset($_SERVER['argv'][1])) {
+				$this->_request = $_SERVER['argv'][1];
 			}
 
-			if(isset($_SERVER['argv'][2])){
+			if (isset($_SERVER['argv'][2])) {
 				$this->_application = $_SERVER['argv'][2];
 			}
 		}
