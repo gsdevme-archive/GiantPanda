@@ -2,7 +2,7 @@
 
 	namespace Controllers;
 
-	class Test
+	class Test extends Controller
 	{
 		
 		public function index()
