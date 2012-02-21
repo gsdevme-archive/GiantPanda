@@ -31,7 +31,7 @@
 		 * @param array $configuration
 		 * @return Panda 
 		 */
-		public static function getInstance(array $configuration)
+		public static function getInstance(array $configuration=null)
 		{
 			if(!self::$_instance instanceof self){
 				self::$_instance = new self($configuration);
@@ -49,14 +49,10 @@
 		private function _autoloader($class)
 		{
 			$file = $this->registry->root . str_replace('\\', '/', $class) . '.php';
-			
-			echo '<pre>' . print_r(func_get_args(), 1) . '</pre>';
 			 
 			if(is_readable($file)){
 				return require_once $file;
 			}
-			
-			echo '<pre>' . print_r(func_get_args(), 1) . '</pre>';
 
 			throw new ClassNotFoundException('Could not find class: ' . $class . ' Resolved file path: ' . $file);			
 		}
