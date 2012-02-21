@@ -16,6 +16,7 @@
 	$root = realpath(dirname(__FILE__)) . '/';
 
 	require_once $root . 'bootstrap.php';
+	require_once $root . 'functions.php';
 	require_once $root . 'System/Panda/Registry.php';
 	require_once $root . 'System/Panda/Panda.php';
 
