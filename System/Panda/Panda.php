@@ -48,12 +48,27 @@
 		 */
 		private function _autoloader($class)
 		{
+			// Reverse namespace into a file path
 			$file = $this->registry->root . str_replace('\\', '/', $class) . '.php';
-			 
-			if(is_readable($file)){
+			$applicationFile = $this->registry->root . $this->registry->application . '/' . str_replace('\\', '/', $class) . '.php';
+			
+			// Could use is_readable() although its twice as slow... and really its not likely PHP wont be able to read it
+			if(file_exists($file)){
 				return require_once $file;
 			}
 
+			if(file_exists($applicationFile)){
+				return require_once $applicationFile;
+			}
+
 			throw new ClassNotFoundException('Could not find class: ' . $class . ' Resolved file path: ' . $file);			
+		}
+
+		/**
+		 * This will merge the Application within the main registry within Panda
+		 */
+		public function loadApplicationConfig()
+		{
+			$this->registry = (object)array_merge((array)$this->registry, (array)include($this->registry->root . $this->registry->application . '/AppConfig.php'));
 		}
 	}
