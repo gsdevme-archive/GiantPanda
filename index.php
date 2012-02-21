@@ -1,4 +1,7 @@
 <?php
+	
+    define('PANDA_MEMORY', memory_get_usage());  
+    define('PANDA_TIME', microtime(true));
 
     /**
      * Index.php the target for our web server.
@@ -11,7 +14,7 @@
 
 	$root = realpath(dirname(__FILE__)) . '/';
 
-	require_once $root . 'Bootstrap.php';
+	require_once $root . 'bootstrap.php';
 	require_once $root . 'System/Panda/Registry.php';
 	require_once $root . 'System/Panda/Panda.php';
 
@@ -26,7 +29,10 @@
 		'time' => PANDA_TIME,
 	));
 	
-	var_dump($panda);
+	$request = new Request($panda);
+	$request->handleRequest();
 	
-	/*$request = new Request($panda);
-	$request->handleRequest();*/
+	echo '<pre>' . var_dump($request->getRequest()) . '</pre>';
+	
+	echo '<pre>' . print_r(((memory_get_usage()-PANDA_MEMORY)/1024) . ' kb', 1) . '</pre>';
+	echo '<pre>' . print_r(microtime(true)-PANDA_TIME, 1) . '</pre>';
