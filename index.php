@@ -11,6 +11,7 @@
 
     use \System\Panda\Panda;
 	use \System\Panda\Request;
+	use \System\Panda\Router;
 
 	$root = realpath(dirname(__FILE__)) . '/';
 
@@ -27,12 +28,26 @@
 		'file' => $_SERVER['SCRIPT_NAME'],
 		'memory' => PANDA_MEMORY,
 		'time' => PANDA_TIME,
+
+		// The properties below are to be overrided within your AppConfig
+		'debug' => (bool)false,
+
+		'defaultController' => 'Home',
+		'defaultMethod' => 'index',
+
+		'appRegistry' => (bool)true,		
 	));
 	
 	$request = new Request($panda);
 	$request->handleRequest();
+
+	$router = new Router($request, $panda);
+	$route = $router->getRoute();
+
+	echo '<pre>' . print_r($route, true) . '</pre>';
+
+	unset($router);
+	unset($request);
 	
-	echo '<pre>' . var_dump($request->getRequest()) . '</pre>';
-	
-	echo '<pre>' . print_r(((memory_get_usage()-PANDA_MEMORY)/1024) . ' kb', 1) . '</pre>';
-	echo '<pre>' . print_r(microtime(true)-PANDA_TIME, 1) . '</pre>';
+	echo '<pre>' . ((memory_get_usage()-PANDA_MEMORY)/1024) . ' kb</pre>';
+	echo '<pre>' . (microtime(true)-PANDA_TIME) . '</pre>';
