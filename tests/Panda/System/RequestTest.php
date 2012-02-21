@@ -2,8 +2,8 @@
 
 	require_once realpath(dirname(__FILE__)) . '/../../bootstrap.php';
 	
-	use \System\Panda\Request;
-	use \System\Panda\Panda;
+	use \Panda\System\Request;
+	use \Panda\System\Panda;
 	
 	class RequestTest extends UnitTestCase
 	{
@@ -23,7 +23,7 @@
 		{
 			$request = new Request($this->_panda);
 					
-			$this->assertTrue(($request instanceof System\Panda\Request));
+			$this->assertTrue(($request instanceof \Panda\System\Request));
 		}
 		
 		public function testWebRequest()

@@ -1,5 +1,5 @@
 <?php
 
-	namespace System\Exceptions;
+	namespace Panda\System\Exceptions;
 
 	class ClassNotFoundException extends Exception{}

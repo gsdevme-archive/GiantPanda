@@ -1,6 +1,6 @@
 <?php
 
-	namespace System\Exceptions;
+	namespace Panda\System\Exceptions;
 
 	abstract class Exception extends \Exception
 	{

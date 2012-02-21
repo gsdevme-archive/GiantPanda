@@ -2,7 +2,7 @@
 
 	require_once realpath(dirname(__FILE__)) . '/../../bootstrap.php';
 	
-	use \System\Panda\Panda;
+	use \Panda\System\Panda;
 	
 	class PandaTest extends UnitTestCase
 	{
@@ -16,7 +16,7 @@
 		
 		public function testPandaInstance()
 		{					
-			$this->assertTrue(($this->_panda instanceof System\Panda\Panda));
+			$this->assertTrue(($this->_panda instanceof \Panda\System\Panda));
 		}
 			
 	}
