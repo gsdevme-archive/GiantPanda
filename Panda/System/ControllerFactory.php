@@ -55,6 +55,11 @@
 
 					// are we sending the correct amount of parameters ?
 					if (count($route) >= $method->getNumberOfRequiredParameters()) {
+						// Walk the array through URLDecode
+						array_walk($route, (function(&$value, &$key){
+							$value = urldecode($value);
+						}));
+						
 						return $method->invokeArgs($class->newInstance(), $route);
 					}
 
