@@ -1,6 +1,6 @@
 <?php
 
-	namespace System\Panda;
+	namespace Panda\System;
 
 	use \SplFixedArray;
 

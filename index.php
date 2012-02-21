@@ -9,17 +9,17 @@
      * @author Gavin Staniforth <Email:gsdev@me.com> <Arpanet:http://gsdev.me> @gsphpdev
     */
 
-    use \System\Panda\Panda;
-	use \System\Panda\Request;
-	use \System\Panda\Router;
-	use \System\Panda\ControllerFactory;
+    use \Panda\System\Panda;
+	use \Panda\System\Request;
+	use \Panda\System\Router;
+	use \Panda\System\ControllerFactory;
 
 	$root = realpath(dirname(__FILE__)) . '/';
 
 	require_once $root . 'bootstrap.php';
 	require_once $root . 'functions.php';
-	require_once $root . 'System/Panda/Registry.php';
-	require_once $root . 'System/Panda/Panda.php';
+	require_once $root . 'Panda/System/Registry.php';
+	require_once $root . 'Panda/System/Panda.php';
 
 	$panda = Panda::getInstance(array(
 		'root' => $root,

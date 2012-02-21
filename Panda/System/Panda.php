@@ -1,9 +1,9 @@
 <?php
 
-	namespace System\Panda;
+	namespace Panda\System;
 
 	use \stdClass;
-	use \System\Exceptions\ClassNotFoundException;
+	use \Panda\System\Exceptions\ClassNotFoundException;
 
 	/**
 	 * Singleton Class for the configuration of the MVC
