@@ -7,7 +7,7 @@
 	class Router
 	{
 
-		private $_request, $_panda;
+		private $_request, $_panda, $_isDirectory;
 
 		public function __construct(Request $request, Panda $panda)
 		{
@@ -33,6 +33,8 @@
 
 			// Check if the first is a folder and not a controller
 			if (is_dir($this->_panda->root . $this->_panda->application . '/Controllers/' . ucfirst($route[0]))) {
+				$this->_isDirectory = (bool)true;
+
 				// If we dont have a controller defined
 				if (count($route) == 1) {
 					array_push($route, $this->_panda->defaultController);
@@ -50,6 +52,11 @@
 			}
 
 			return $route;
+		}
+
+		public function isDirectory()
+		{
+			return (bool)$this->_isDirectory;
 		}
 
 	}

@@ -44,7 +44,7 @@
 	$request->handleRequest();
 
 	$router = new Router($request, $panda);
-	ControllerFactory::create($router->getRoute());
+	ControllerFactory::create($router->getRoute(), $router->isDirectory());
 	
 	echo '<pre>' . ((memory_get_usage()-PANDA_MEMORY)/1024) . ' kb</pre>';
 	echo '<pre>' . (microtime(true)-PANDA_TIME) . '</pre>';
