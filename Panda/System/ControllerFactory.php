@@ -1,16 +1,17 @@
 <?php
-	
+
 	/**
 	 * ControllerFactory
 	 *
 	 * @author Gavin Staniforth <Email:gsdev@me.com> <Arpanet:http://gsdev.me> @gsphpdev
-	 */	
+	 */
 
 	namespace Panda\System;
 
 	use \ReflectionClass;
 	use \ReflectionMethod;
 	use \Panda\System\Exceptions\RouterException;
+	use \Panda\System\Exceptions\ClassNotFoundException;
 	use \Panda\System\Panda;
 
 	class ControllerFactory
@@ -56,10 +57,10 @@
 					// are we sending the correct amount of parameters ?
 					if (count($route) >= $method->getNumberOfRequiredParameters()) {
 						// Walk the array through URLDecode
-						array_walk($route, (function(&$value, &$key){
-							$value = urldecode($value);
-						}));
-						
+						array_walk($route, (function(&$value, &$key) {
+								$value = urldecode($value);
+							}));
+
 						return $method->invokeArgs($class->newInstance(), $route);
 					}
 
