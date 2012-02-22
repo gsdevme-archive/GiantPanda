@@ -19,6 +19,7 @@
 	use \Panda\System\Request;
 	use \Panda\System\Router;
 	use \Panda\System\ControllerFactory;
+	use \Panda\System\ExceptionHandler;
 
 	$root = realpath(dirname(__FILE__)) . '/';
 
@@ -42,11 +43,14 @@
 		'appRegistry' => ( bool ) true,
 	));
 
-	$request = new Request($panda);
-	$request->handleRequest();
+	try{
+		$request = new Request($panda);
+		$request->handleRequest();
 
-	$router = new Router($request, $panda);
-	ControllerFactory::create($router->getRoute(), $router->isDirectory());
-
-	echo '<pre>' . ((memory_get_usage() - PANDA_MEMORY) / 1024) . ' kb</pre>';
-	echo '<pre>' . (microtime(true) - PANDA_TIME) . '</pre>';
+		$router = new Router($request, $panda);
+		ControllerFactory::create($router->getRoute(), $router->isDirectory());		
+	}catch(Exception $e){
+		$exception = new ExceptionHandler($e, $panda);
+		$exception->handle();
+		$exception->shutdown();
+	}
