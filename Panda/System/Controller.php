@@ -87,4 +87,9 @@
 			return ViewFactory::getInstance()->addView($name, $args, $shared, $static);
 		}
 
+		protected function render($cache = false, $xssfilter = true, array $headers = null)
+		{
+			return ViewFactory::getInstance()->render($cache, $xssfilter, $headers);
+		}
+
 	}
