@@ -48,16 +48,16 @@
 				set_time_limit($seconds);
 			}
 			
-            $size = ob_get_length();
+			$size = ob_get_length();
 
-            header("Content-Length: $size");
-            header('Connection: close');
+			header("Content-Length: $size");
+			header('Connection: close');
 
 			// Abit nasty but its all required :(
-            try{ob_end_flush();}catch(Exception $e){}
-            try{ob_flush();}catch(Exception $e){}
-            try{flush();}catch(Exception $e){}
-            try{session_write_close();}catch(Exception $e){} 		
+			try{ob_end_flush();}catch(Exception $e){}
+			try{ob_flush();}catch(Exception $e){}
+			try{flush();}catch(Exception $e){}
+			try{session_write_close();}catch(Exception $e){} 		
 		}
 
 		/**
