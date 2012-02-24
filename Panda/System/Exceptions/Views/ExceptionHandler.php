@@ -18,36 +18,41 @@
 				font-size:14px;
 				font-weight:400;
 				background:#606B7C;
-				line-height:42px;
+				line-height:32px;
 				color:#FAFAFA;
 				margin:0;
-				padding:0 10px 5px 10px;
+				padding:0 10px 0 10px;
+				text-indent:5px;
+			}
+
+			.error:first-child h1{
+				background:#8B3E2F;
+				font-size:18px;
+				line-height:42px;
 			}
 
 			.error .code{
 				width:100%;
-				padding:20px 1%;
+				padding:10px 1%;
 			}
 
 			.error .code h3{
 				margin:0;
 				padding:0;
-				line-height:12px;
-				font-size:12px;
+				line-height:11px;
+				font-size:11px;
 				color:#303030;
 			}
 
 			.error .code pre{
 				display:block;
 				width:96%;
-				padding:1%;
+				font-size:12px;
+				padding:5px 1%;
 				font-family: monospace;
 				white-space: pre-wrap;
 				background:#FFF;
 			}
-
-			
-
 		</style>
 	</head>
 
