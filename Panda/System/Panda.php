@@ -1,10 +1,10 @@
 <?php
-	
+
 	/**
 	 * Panda
 	 *
 	 * @author Gavin Staniforth <Email:gsdev@me.com> <Arpanet:http://gsdev.me> @gsphpdev
-	 */	
+	 */
 
 	namespace Panda\System;
 
@@ -24,10 +24,16 @@
 		 * 
 		 * @param array $configuration 
 		 */
-		private function __construct(array $configuration)
+		private function __construct(array $configuration, $phpunit=false)
 		{
 			$this->registry = ( object ) $configuration;
-			spl_autoload_register(array($this, '_autoloader'), true, true);
+
+			if($phpunit){
+				spl_autoload_register(array($this, '_autoloader'), true);
+			}else{
+				spl_autoload_register(array($this, '_autoloader'), true, true);
+			}
+			
 		}
 
 		/**
@@ -37,10 +43,10 @@
 		 * @param array $configuration
 		 * @return Panda 
 		 */
-		public static function getInstance(array $configuration = null)
+		public static function getInstance(array $configuration = null, $phpunit=false)
 		{
 			if (!self::$_instance instanceof self) {
-				self::$_instance = new self($configuration);
+				self::$_instance = new self($configuration, $phpunit);
 			}
 
 			return self::$_instance;

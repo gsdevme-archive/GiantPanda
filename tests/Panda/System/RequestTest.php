@@ -1,37 +1,33 @@
 <?php
-
+	
 	require_once realpath(dirname(__FILE__)) . '/../../bootstrap.php';
 	
 	use \Panda\System\Request;
 	use \Panda\System\Panda;
 	
-	class RequestTest extends UnitTestCase
+	class RequestTest extends PHPUnit_Framework_TestCase
 	{
 		
-		private $_panda;
+		private $_request;
 		
 		public function setUp()
 		{
-			$this->_panda = Panda::getInstance();
-			
-			$_SERVER['argv'] = array();
+			$this->_request = new Request(Panda::getInstance());
+
 			$_SERVER['argv'][1] = 'controller/method/args';
-			$_SERVER['argv'][2] = 'ExampleCom';
+			$_SERVER['argv'][2] = 'Index';
 		}
 		
 		public function testRequestInstance()
-		{
-			$request = new Request($this->_panda);
-					
-			$this->assertTrue(($request instanceof \Panda\System\Request));
+		{					
+			$this->assertTrue(($this->_request instanceof \Panda\System\Request));
 		}
-		
-		public function testWebRequest()
-		{			
-			$request = new Request($this->_panda);
-			$request->handleRequest();
-			
-			$this->assertEqual($request->getRequest(), 'test');		
+
+		public function testCommandHandle()
+		{
+			$this->_request->handleRequest();
+
+			$this->assertTrue(($this->_request->getApplication() == 'Index'));
 		}
 			
 	}
