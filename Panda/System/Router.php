@@ -1,10 +1,10 @@
 <?php
-	
+
 	/**
 	 * Router
 	 *
 	 * @author Gavin Staniforth <Email:gsdev@me.com> <Arpanet:http://gsdev.me> @gsphpdev
-	 */	
+	 */
 
 	namespace Panda\System;
 
@@ -50,7 +50,7 @@
 
 			// Check if the first is a folder and not a controller
 			if (is_dir($this->_panda->root . $this->_panda->application . '/Controllers/' . ucfirst($route[0]))) {
-				$this->_isDirectory = (bool)true;
+				$this->_isDirectory = ( bool ) true;
 
 				// If we dont have a controller defined
 				if (count($route) == 1) {
@@ -78,7 +78,7 @@
 		 */
 		public function isDirectory()
 		{
-			return (bool)$this->_isDirectory;
+			return ( bool ) $this->_isDirectory;
 		}
 
 	}
