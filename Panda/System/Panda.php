@@ -55,8 +55,9 @@
 		/**
 		 * autoloader method for loading classes and such
 		 * 
-		 * @param string $class
-		 * @return bool
+		 * @param type $class
+		 * @return type
+		 * @throws ClassNotFoundException 
 		 */
 		private function _autoloader($class)
 		{
