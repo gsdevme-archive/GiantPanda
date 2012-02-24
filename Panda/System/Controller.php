@@ -8,6 +8,9 @@
 
 	namespace Panda\System;
 
+	use \Exception;
+	use \Panda\ViewFactory;
+
 	abstract class Controller
 	{
 		
@@ -17,7 +20,7 @@
 		 * @param string $url
 		 * @param bool $permanently 
 		 */
-		protected function redirect($url, $permanently=true)
+		protected function redirect($url, $permanently = true)
 		{
 			if($permanently){
 				header("HTTP/1.1 301 Moved Permanently"); 
@@ -38,7 +41,7 @@
 		 * @param string $memory
 		 * @param int $seconds 
 		 */
-		protected function close($memory=null, $seconds=null)
+		protected function close($memory = null, $seconds = null)
 		{
 			if($memory !== null){
 				ini_set('memory_limit', $memory);
@@ -66,8 +69,22 @@
 		 * @param array $route
 		 * @param bool $directory 
 		 */
-		protected function route(array $route=null, $directory=false)
+		protected function route(array $route = null, $directory = false)
 		{
 			return ControllerFactory::create($route, $directory);
 		}
+
+		/**
+		 * Used as a shortcut to load a view
+		 *
+		 * @param string $name
+		 * @param array $args
+		 * @param bool $shared
+		 * @param bool $static 
+		 */
+		protected function view($name, array $args = null, $shared = false, $static = false)
+		{
+			return ViewFactory::getInstance()->addView($name, $args, $shared, $static);
+		}
+
 	}
