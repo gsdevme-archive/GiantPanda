@@ -20,6 +20,7 @@
 
 		/**
 		 *
+		 * @static
 		 * @param array $route
 		 * @param bool $isDirectory
 		 * @return object
