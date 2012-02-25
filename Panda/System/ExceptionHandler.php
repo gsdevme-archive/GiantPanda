@@ -90,6 +90,12 @@
 		 */
 		public function shutdown()
 		{
+			// If its a console theres just var_dump
+			if ((defined('PHP_SAPI')) && (PHP_SAPI === 'cli')) {
+				var_dump($this->_exception);
+				exit;
+			}
+
 			if (!$this->_panda->debug) {
 				if (isset($this->_panda->debugCallback)) {
 					$callback = $this->_panda->debugCallback;
@@ -103,6 +109,12 @@
 			exit();
 		}
 
+		/**
+		 * 
+		 * 
+		 * @param mixed $args
+		 * @return string 
+		 */
 		private function _buildParameters($args)
 		{
 			array_walk($args, function(&$value, $key){
