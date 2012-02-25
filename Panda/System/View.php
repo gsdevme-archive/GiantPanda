@@ -45,6 +45,7 @@
 							}
 						};
 
+					// Walk through the array and apply the XSS Filter
 					array_walk($args, $recursiveFilter, $recursiveFilter);
 				}
 
