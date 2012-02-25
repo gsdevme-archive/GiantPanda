@@ -8,4 +8,7 @@
 
 	namespace Panda\System\Exceptions;
 
+	/**
+	 * ClassNotFound Exception, thrown when trying to autoload a class
+	 */	
 	class ClassNotFoundException extends Exception{}

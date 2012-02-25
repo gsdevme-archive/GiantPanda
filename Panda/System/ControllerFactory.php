@@ -13,7 +13,6 @@
 	use \ReflectionException;
 	use \Panda\System\Exceptions\RouterException;
 	use \Panda\System\Exceptions\ClassNotFoundException;
-	use \Panda\System\Panda;
 
 	class ControllerFactory
 	{
@@ -42,7 +41,7 @@
 				$method = new ReflectionMethod($controller, urldecode(array_shift($route)));
 			} catch (ClassNotFoundException $e) {
 				throw new RouterException('Failed to create an instance of the controller/method', null, $e, 404);
-			}			
+			}
 
 			// Lets check our Method is public and our class is instantiable :)
 			if (($method->isPublic()) && ($class->isInstantiable())) {

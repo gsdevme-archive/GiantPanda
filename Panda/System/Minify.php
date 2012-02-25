@@ -1,20 +1,37 @@
 <?php
 
-    namespace Panda\System;
+	namespace Panda\System;
 
-    require_once realpath(dirname(__FILE__)) . '/ThirdParty/MinifyHTML.php';
+	require_once realpath(dirname(__FILE__)) . '/ThirdParty/MinifyHTML.php';
 
-    use \MinifyHTML;
+	use \MinifyHTML;
 
-    class Minify{
-        private $_minifyHtml;
-        
-        public function __construct($html){
-            $this->_minifyHtml = new MinifyHTML($html);
-        }
-        
-        public function process(){
-            return $this->_minifyHtml->process();
-        }
-    }
-    
+	/**
+	 * Simple facade class around the minify class found on google apps
+	 */
+	class Minify
+	{
+
+		private $_minifyHtml;
+
+		/**
+		 *
+		 * @param type $html 
+		 */
+		public function __construct($html)
+		{
+			$this->_minifyHtml = new MinifyHTML($html);
+		}
+
+		/**
+		 *
+		 * @return type 
+		 */
+		public function process()
+		{
+			return $this->_minifyHtml->process();
+		}
+
+	}
+
+	

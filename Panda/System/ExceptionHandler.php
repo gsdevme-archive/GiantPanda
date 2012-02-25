@@ -1,10 +1,10 @@
 <?php
-	
+
 	/**
 	 * ExceptionHandler
 	 *
 	 * @author Gavin Staniforth <Email:gsdev@me.com> <Arpanet:http://gsdev.me> @gsphpdev
-	 */	
+	 */
 
 	namespace Panda\System;
 
@@ -70,8 +70,8 @@
 
 			// Build trace
 			if ($this->_exception->getTrace() !== null) {
-				foreach($this->_exception->getTrace() as $trace){
-					if(isset($trace['line'], $trace['file'], $trace['args'], $trace['class'], $trace['function'])){
+				foreach ($this->_exception->getTrace() as $trace) {
+					if (isset($trace['line'], $trace['file'], $trace['args'], $trace['class'], $trace['function'])) {
 						array_push($this->_outputArray, ( object ) array(
 								'class' => substr($trace['class'], strrpos($trace['class'], '\\')),
 								'message' => $trace['function'] . $this->_buildParameters($trace['args']),
@@ -81,7 +81,7 @@
 								'htmlFile' => $this->_getPHPLines($trace['file'], $trace['line']),
 						));
 					}
-				}			
+				}
 			}
 		}
 
@@ -117,28 +117,28 @@
 		 */
 		private function _buildParameters($args)
 		{
-			array_walk($args, function(&$value, $key){
-				switch (gettype($value)) {
-					case 'object':
-						$value = get_class($value) . ' Object';
-						break;
-					case 'array':
-						$value = var_export($value, true);
-						break;
-					case 'NULL':
-						$value = 'null';
-						break;
-					case 'boolean':
-						$value = ($value) ? 'true' : 'false';
-						break;
-					case 'string':
-						$value = '"'.$value.'"';
-						break;						
-					default:
-						$value = '';
-						break;
-				}
-			});
+			array_walk($args, function(&$value, $key) {
+					switch (gettype($value)) {
+						case 'object':
+							$value = get_class($value) . ' Object';
+							break;
+						case 'array':
+							$value = var_export($value, true);
+							break;
+						case 'NULL':
+							$value = 'null';
+							break;
+						case 'boolean':
+							$value = ($value) ? 'true' : 'false';
+							break;
+						case 'string':
+							$value = '"' . $value . '"';
+							break;
+						default:
+							$value = '';
+							break;
+					}
+				});
 
 			return '( ' . implode(', ', $args) . ' )';
 		}

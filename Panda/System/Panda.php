@@ -24,16 +24,15 @@
 		 * 
 		 * @param array $configuration 
 		 */
-		private function __construct(array $configuration, $phpunit=false)
+		private function __construct(array $configuration, $phpunit = false)
 		{
 			$this->registry = ( object ) $configuration;
 
-			if($phpunit){
+			if ($phpunit) {
 				spl_autoload_register(array($this, '_autoloader'), true);
-			}else{
+			} else {
 				spl_autoload_register(array($this, '_autoloader'), true, true);
 			}
-			
 		}
 
 		/**
@@ -43,7 +42,7 @@
 		 * @param array $configuration
 		 * @return Panda 
 		 */
-		public static function getInstance(array $configuration = null, $phpunit=false)
+		public static function getInstance(array $configuration = null, $phpunit = false)
 		{
 			if (!self::$_instance instanceof self) {
 				self::$_instance = new self($configuration, $phpunit);

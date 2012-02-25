@@ -57,6 +57,13 @@
 			require $file;
 		}
 
+		/**
+		 * This will load an element within the view
+		 * 
+		 * @param type $name
+		 * @param array $args
+		 * @param type $shared 
+		 */
 		public function element($name, array $args=null, $shared = false)
 		{
 

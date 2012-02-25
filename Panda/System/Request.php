@@ -71,7 +71,7 @@
 				$application = (!ctype_alnum($application)) ? str_replace(' ', null, ucwords(preg_replace("/[^A-Z0-9]+/i", ' ', $application))) : $application;
 
 				// Ensure the first letter is valid as a folder name
-				if (ord(substr($application, 0, 1)) < 65) {
+				if (!ord(substr($application, 0, 1)) < 65) {
 					$this->_application = $application;
 				}
 			}

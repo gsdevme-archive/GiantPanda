@@ -12,7 +12,7 @@
 
 	/**
 	 * Router class, this will parse the request into an array which can be routed, it will added default controllers or methods if needed
-	*/
+	 */
 	class Router
 	{
 

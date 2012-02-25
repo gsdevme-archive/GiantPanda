@@ -4,16 +4,19 @@
 	 * Controller
 	 *
 	 * @author Gavin Staniforth <Email:gsdev@me.com> <Arpanet:http://gsdev.me> @gsphpdev
-	 */	
+	 */
 
 	namespace Panda\System;
 
 	use \Exception;
 	use \Panda\ViewFactory;
 
+	/**
+	 * Abstract class for every controller to give it some simple methods mostly as shortcuts to other parts of the MVC 
+	 */
 	abstract class Controller
 	{
-		
+
 		/**
 		 * This is a simple HTTP Redirect, using the header() either 301 or 307
 		 * 
@@ -22,14 +25,14 @@
 		 */
 		protected function redirect($url, $permanently = true)
 		{
-			if($permanently){
-				header("HTTP/1.1 301 Moved Permanently"); 
-			}else{
-				header("HTTP/1.1 307 Temporary Redirect"); 
+			if ($permanently) {
+				header("HTTP/1.1 301 Moved Permanently");
+			} else {
+				header("HTTP/1.1 307 Temporary Redirect");
 			}
 
-			 header ('Location: '. $url);
-			 exit;
+			header('Location: ' . $url);
+			exit;
 		}
 
 		/**
@@ -43,24 +46,40 @@
 		 */
 		protected function close($memory = null, $seconds = null)
 		{
-			if($memory !== null){
+			if ($memory !== null) {
 				ini_set('memory_limit', $memory);
 			}
-			
-			if($seconds !== null){
+
+			if ($seconds !== null) {
 				set_time_limit($seconds);
 			}
-			
+
 			$size = ob_get_length();
 
 			header("Content-Length: $size");
 			header('Connection: close');
 
 			// Abit nasty but its all required :(
-			try{ob_end_flush();}catch(Exception $e){}
-			try{ob_flush();}catch(Exception $e){}
-			try{flush();}catch(Exception $e){}
-			try{session_write_close();}catch(Exception $e){} 		
+			try {
+				ob_end_flush();
+			} catch (Exception $e) {
+				
+			}
+			try {
+				ob_flush();
+			} catch (Exception $e) {
+				
+			}
+			try {
+				flush();
+			} catch (Exception $e) {
+				
+			}
+			try {
+				session_write_close();
+			} catch (Exception $e) {
+				
+			}
 		}
 
 		/**
