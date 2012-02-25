@@ -9,7 +9,7 @@
 	namespace Panda\System;
 
 	/**
-	 * Abstract Class For every view you a view object will be created which allows the data to be filtered for XSS attacks, 
+	 * Abstract View Class For every view a view object will be created which allows the data to be filtered for XSS attacks, 
 	 * it also provides it with methods such as the element() method
 	*/
 	abstract class View

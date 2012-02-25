@@ -13,7 +13,6 @@
 
 	/**
 	 * Panda class used as a registry store configuration options for the Framework
-	 * Singleton Class
 	 */
 	class Panda extends Registry
 	{
