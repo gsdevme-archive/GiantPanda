@@ -7,7 +7,7 @@
 		
 		public function index()
 		{
-			$this->view('home', null, true);
+			$this->view('home', array('foo' => 1))->render(true);
 		}
 	
 	}
