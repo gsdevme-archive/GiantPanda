@@ -48,7 +48,9 @@
 		$request->handleRequest();
 
 		$router = new Router($request, $panda);
-		ControllerFactory::create($router->getRoute(), $router->isDirectory());		
+		ControllerFactory::create($router->getRoute(), $router->isDirectory());	
+
+		unset($request, $router);	
 	}catch(Exception $e){
 		$exception = new ExceptionHandler($e, $panda);
 		$exception->handle();
