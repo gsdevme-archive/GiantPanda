@@ -8,10 +8,22 @@
 
 	namespace Panda\System;
 
+	/**
+	 * Abstract Class For every view you a view object will be created which allows the data to be filtered for XSS attacks, 
+	 * it also provides it with methods such as the element() method
+	*/
 	abstract class View
 	{
 
-		public function __construct($file, array $args = null, $xssFilter = true)
+		protected $args;
+
+		/**
+		 * View class is set with the file and arguments it requires
+		 * @param string $file
+		 * @param array $args
+		 * @param bool $xssFilter
+		 */
+		public function __construct(Panda $panda, $file, array $args = null, $xssFilter = true)
 		{
 			if ($args !== null) {
 				if ($xssFilter === true) {
@@ -42,6 +54,11 @@
 			}
 
 			require $file;
+		}
+
+		public function element($name, array $args=null, $shared = false)
+		{
+
 		}
 
 	}
