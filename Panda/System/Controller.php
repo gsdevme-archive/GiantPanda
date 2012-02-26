@@ -60,26 +60,10 @@
 			header('Connection: close');
 
 			// Abit nasty but its all required :(
-			try {
-				ob_end_flush();
-			} catch (Exception $e) {
-				
-			}
-			try {
-				ob_flush();
-			} catch (Exception $e) {
-				
-			}
-			try {
-				flush();
-			} catch (Exception $e) {
-				
-			}
-			try {
-				session_write_close();
-			} catch (Exception $e) {
-				
-			}
+			try { ob_end_flush(); } catch (Exception $e) { }
+			try { ob_flush(); } catch (Exception $e) { }
+			try { flush(); } catch (Exception $e) { }
+			try { session_write_close(); } catch (Exception $e) { }
 		}
 
 		/**
@@ -106,6 +90,14 @@
 			return ViewFactory::getInstance()->addView($name, $args, $shared, $static);
 		}
 
+		/**
+		 * Renders all views
+		 * 
+		 * @param bool $cache
+		 * @param bool $xssfilter
+		 * @param array $headers
+		 * @return bool
+		 */
 		protected function render($cache = false, $xssfilter = true, array $headers = null)
 		{
 			return ViewFactory::getInstance()->render($cache, $xssfilter, $headers);
