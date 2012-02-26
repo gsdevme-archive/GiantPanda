@@ -41,6 +41,8 @@
 				$method = new ReflectionMethod($controller, urldecode(array_shift($route)));
 			} catch (ClassNotFoundException $e) {
 				throw new RouterException('Failed to create an instance of the controller/method', null, $e, 404);
+			} catch (ReflectionException $e) {
+				throw new RouterException('Failed to create an instance of the controller/method', null, $e, 404);
 			}
 
 			// Lets check our Method is public and our class is instantiable :)

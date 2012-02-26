@@ -12,6 +12,9 @@
 	use \Panda\System\Panda;
 	use \SplFileObject;
 
+	/**
+	 *  Exception Handler class, this will handle exceptions and conver them into nice pretty errors with use of the Error View
+	 */
 	class ExceptionHandler
 	{
 
