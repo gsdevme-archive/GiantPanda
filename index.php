@@ -1,9 +1,8 @@
 <?php
 
-	define('PANDA_MEMORY', memory_get_usage());
-	define('PANDA_TIME', microtime(true));
+	define('PANDA_VERSION', '1.0.0');
 
-/**
+	/**
 	 * Index.php the target for our web server.
 	 *
 	 * In terms of license to use the Framework, use it as you want. 
@@ -21,7 +20,7 @@
 	use \Panda\System\ControllerFactory;
 	use \Panda\System\ExceptionHandler;
 
-$root = realpath(dirname(__FILE__)) . '/';
+	$root = realpath(dirname(__FILE__)) . '/';
 
 	require_once $root . 'bootstrap.php';
 	require_once $root . 'functions.php';
@@ -34,8 +33,8 @@ $root = realpath(dirname(__FILE__)) . '/';
 			'request' => $_SERVER['REQUEST_URI'],
 			'host' => $_SERVER['HTTP_HOST'],
 			'file' => $_SERVER['SCRIPT_NAME'],
-			'memory' => PANDA_MEMORY,
-			'time' => PANDA_TIME,
+			'memory' => memory_get_usage(),
+			'time' => microtime(true),
 			// The properties below are to be overrided within your AppConfig
 			'debug' => ( bool ) false,
 			'defaultController' => 'Home',
