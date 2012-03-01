@@ -8,6 +8,8 @@
 
 	namespace Panda\System;
 
+	use \Panda\System\Exceptions\ViewException;	
+
 	/**
 	 * Abstract View Class For every view a view object will be created which allows the data to be filtered for XSS attacks, 
 	 * it also provides it with methods such as the element() method
@@ -15,7 +17,7 @@
 	abstract class View
 	{
 
-		protected $args;
+		protected $args, $panda;
 
 		/**
 		 * View class is set with the file and arguments it requires
@@ -25,6 +27,8 @@
 		 */
 		public function __construct(Panda $panda, $file, array $args = null, $xssFilter = true)
 		{
+			$this->panda = $panda;
+
 			if ($args !== null) {
 				if ($xssFilter === true) {
 					$recursiveFilter = function(&$value, $key, $recursiveFilter) {
@@ -60,13 +64,26 @@
 		/**
 		 * This will load an element within the view
 		 * 
-		 * @param type $name
+		 * @param string $name
+		 * @param bool $shared
 		 * @param array $args
-		 * @param type $shared 
+		 * @param bool $static 
 		 */
-		public function element($name, array $args=null, $shared = false)
+		public function element($name, $shared = false, array $args=null, $static = false)
 		{
+			$file = $this->panda->root . (($shared !== false) ? $this->panda->application : 'Shared' ) . '/Elements/' . $name . (($static !== false) ? '.html' : '.php');
 
+			if($args !== null) {
+				if($this->args !== null){
+					extract($this->args);
+				}
+			}
+
+			if(file_exists($file)) {
+				require $file;
+			}
+
+			throw new ViewException('Could not find ' . $name . ' Element, resolved path ' . $file, null, null, 500);
 		}
 
 	}
