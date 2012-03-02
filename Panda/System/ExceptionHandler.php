@@ -104,6 +104,9 @@
 					$callback = $this->_panda->debugCallback;
 					return $callback($this->_exception, $this->_panda);
 				}
+
+				// If debug is off ye they haven't defined a callback its best to just output some text... dont want to give any source anyway
+				return 'Error Occurred, there was a fatal server error';
 			}
 
 			extract(array('errors' => $this->_outputArray));

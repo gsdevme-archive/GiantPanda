@@ -47,6 +47,20 @@
 		$request->handleRequest();
 
 		$router = new Router($request, $panda);
+
+		/*
+		 * This will allow us to catch fatal errors
+		*/
+		register_shutdown_function(function($panda){
+			$error = error_get_last();
+
+			if($error !== null){
+				$exception = new ExceptionHandler(new ErrorException($error['message'], 0, $error['type'], $error['file'], $error['line']), $panda);
+				$exception->handle();
+				$exception->shutdown();				
+			}			
+		}, $panda);
+
 		ControllerFactory::create($router->getRoute(), $router->isDirectory());
 
 		unset($request, $router);
