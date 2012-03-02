@@ -1,3 +1,4 @@
+__error__
 <!doctype html>
 <html lang="en">
 	<head>
@@ -20,5 +21,16 @@
 				</div>
 			</div>
 		<?php endforeach; ?>
+
+		<script>
+			/*
+			 * Very hacky method to remove anything before the actual error view, for fatal errors its the main problem
+			*/
+			(function(document, undefined){
+				var page = document.getElementsByTagName('html')[0];
+				page.innerHTML=page.innerHTML.substr(page.innerHTML.indexOf('__error__')+9);
+
+			})(document);
+		</script>
 	</body>
 </html>

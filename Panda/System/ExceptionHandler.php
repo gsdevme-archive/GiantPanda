@@ -42,12 +42,7 @@
 
 			if (!empty($status)) {
 				// Just incase for some reason is doesn't clean
-				try {
-					ob_end_clean();
-					unset($status);
-				} catch (\Exception $e) {
-					
-				}
+				try {ob_end_clean();} catch (\Exception $e) { }
 			}
 
 			// Rebuild exception into a nice structure

@@ -55,7 +55,7 @@
 			$error = error_get_last();
 
 			if($error !== null){
-				$exception = new ExceptionHandler(new ErrorException($error['message'], 0, $error['type'], $error['file'], $error['line']), $panda);
+				$exception = new ExceptionHandler(new ErrorException('<u>Fatal Error</u> ' . $error['message'], 0, $error['type'], $error['file'], $error['line']), $panda);
 				$exception->handle();
 				$exception->shutdown();				
 			}			
