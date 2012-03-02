@@ -22,10 +22,10 @@
 
 	$root = realpath(dirname(__FILE__)) . '/';
 
-	require_once $root . 'bootstrap.php';
-	require_once $root . 'functions.php';
-	require_once $root . 'Panda/System/Registry.php';
-	require_once $root . 'Panda/System/Panda.php';
+	require $root . 'bootstrap.php';
+	require $root . 'functions.php';
+	require $root . 'Panda/System/Registry.php';
+	require $root . 'Panda/System/Panda.php';
 
 	$panda = Panda::getInstance(array(
 			'root' => $root,
