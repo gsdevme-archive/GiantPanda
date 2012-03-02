@@ -7,8 +7,7 @@
 		
 		public function index()
 		{
-			$this->view('home')->ppo();
-			$this->render();
+			$this->view('home')->render();
 		}
 
 		public function test()
