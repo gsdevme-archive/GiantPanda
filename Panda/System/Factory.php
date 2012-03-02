@@ -14,6 +14,8 @@
 	class Factory
 	{
 
+		private static $_panda;
+
 		/**
 		 *
 		 * @param string $model
@@ -24,7 +26,7 @@
 		 */
 		public static function model($model, $shared = false, array $args = null)
 		{
-			$model = self::_loader($model, '\Models\\', $args, $shared);
+			$model = self::_appLoader($model, '\Models\\', $args, $shared);
 
 			if ($model instanceof Model) {
 				return $model;
@@ -43,6 +45,32 @@
 		public static function panda($class, array $args = null)
 		{
 			return self::_loader($class, '\Panda\\', $args, false);
+		}
+
+		/**
+		 *
+		 * @param string $name
+		 * @param string $namespace
+		 * @param array $args
+		 * @param bool $shared
+		 * @return object 
+		 */
+		private static function _appLoader($class, $namespace, array $args = null, $shared = false)
+		{
+			$store = lcfirst(str_replace('\\', null, $namespace));
+
+			// Is it already loaded within the application registry?
+			if(($return = self::_registryStore($class, $store))){
+				return $return;
+			}
+
+			// Get the object
+			$object = self::_loader($class, $namespace, $args, $shared);
+
+			// Store within the application registry
+			self::_registryStore($class, $store, $object);
+
+			return $object;
 		}
 
 		/**
@@ -112,5 +140,24 @@
 
 			throw new ClassNotFoundException('Could not find class: ' . $class . ' Resolved file path: ' . $file);
 		}
+
+		private static function _registryStore($name, $store, $value = false)
+		{
+			if(!self::$_panda instanceof Panda){
+				self::$_panda = Panda::getInstance();
+			}	
+
+			if(self::$_panda->appRegistry === true){
+				if(is_object($value)){
+					return self::$_panda->registry->$store->$name = $value;
+				}		
+
+				if(isset(self::$_panda->registry->$store->$name)){
+					return self::$_panda->registry->$store->$name;
+				}
+			}
+
+			return (bool)false;
+		}		
 
 	}
