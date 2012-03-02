@@ -14,7 +14,10 @@
 		 */
 		'debugCallback' => (function($errors, $panda){
 			echo 'Your Error Here :), perhaps call an Error Controller ?';	
-			exit;		
+			exit;
+
+			// Something like this perhaps?
+			//\Panda\System\ControllerFactory::create(array('home', 'test'));					
 		}),
 			
 		/**

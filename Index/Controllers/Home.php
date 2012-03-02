@@ -7,8 +7,13 @@
 		
 		public function index()
 		{
-			$this->view('home');
+			$this->view('home')->ppo();
 			$this->render();
+		}
+
+		public function test()
+		{
+			echo 'hello';
 		}
 	
 	}
