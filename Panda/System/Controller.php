@@ -18,6 +18,19 @@
 	{
 
 		/**
+		 *
+		 * @param string $model
+		 * @param string $shared
+		 * @param array $args
+		 * @return \Panda\System\Model
+		 * @throws FactoryException 
+		 */
+		protected function model($model, $shared = false, array $args = null)
+		{
+			return Factory::model($model, $shared, $args);
+		}
+
+		/**
 		 * This is a simple HTTP Redirect, using the header() either 301 or 307
 		 * 
 		 * @param string $url
