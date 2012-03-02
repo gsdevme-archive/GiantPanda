@@ -28,6 +28,12 @@
 		{
 			$this->registry = ( object ) $configuration;
 
+			$this->registry->registry = new stdClass;
+			$this->registry->registry->helpers = new stdClass;
+			$this->registry->registry->serviceLayers = new stdClass;
+			$this->registry->registry->models = new stdClass;
+			$this->registry->registry->libraries = new stdClass;
+
 			if ($phpunit) {
 				spl_autoload_register(array($this, '_autoloader'), true);
 			} else {
