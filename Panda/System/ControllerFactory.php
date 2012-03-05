@@ -73,7 +73,7 @@
 				throw new RouterException('The controller method was not sent the correct amount of parameters', null, null, 404);
 			}
 
-			throw new RouterException('The method is either not public or the class is not isInstantiable', null, null, 404);
+			throw new RouterException('The method is either not public or the class is not instantiable', null, null, 404);
 		}
 
 	}
