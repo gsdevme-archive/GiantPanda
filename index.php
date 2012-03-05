@@ -1,7 +1,5 @@
 <?php
 
-	define('PANDA_VERSION', '1.0.0');
-
 	/**
 	 * Index.php the target for our web server.
 	 *
@@ -35,6 +33,8 @@
 			'file' => $_SERVER['SCRIPT_NAME'],
 			'memory' => memory_get_usage(),
 			'time' => microtime(true),
+			'version' => '1.0.0',
+
 			// The properties below are to be overrided within your AppConfig
 			'debug' => ( bool ) false,
 			'defaultController' => 'Home',
