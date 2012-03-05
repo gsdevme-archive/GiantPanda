@@ -4,6 +4,7 @@
 
 	use Panda\System\Exceptions\FactoryException;
 	use \ReflectionClass;
+	use \ReflectionException;
 	use \ReflectionMethod;
 	use \Exception;
 	use \Panda\System\Exceptions\ClassNotFoundException;
@@ -17,25 +18,33 @@
 		private static $_panda;
 
 		/**
+		 * Will load the model, either from stratch or will grab it from the registry
 		 *
 		 * @param string $model
 		 * @param string $shared
 		 * @param array $args
-		 * @return \Panda\System\Model
-		 * @throws FactoryException 
+		 * @return object
 		 */
 		public static function model($model, $shared = false, array $args = null)
 		{
-			$model = self::_appLoader($model, '\Models\\', $args, $shared);
-
-			if ($model instanceof Model) {
-				return $model;
-			}
-
-			throw new FactoryException('Failed to load a Model, remember your model must extend the class \Panda\System\Model', 0, null, 500);
+			return self::_appLoader($model, '\Models\\', $args, $shared);
 		}
 
 		/**
+		 * Will load the library, either from stratch or will grab it from the registry
+		 *
+		 * @param string $library
+		 * @param string $shared
+		 * @param array $args
+		 * @return object
+		*/
+		public static function library($library, $shared = false, array $args = null)
+		{
+			return self::_appLoader($library, '\Libraries\\', $args, $shared);
+		}		
+
+		/**
+		 * Loads a class within the \Panda\ namespace
 		 *
 		 * @param string $class
 		 * @param array $args
@@ -48,6 +57,7 @@
 		}
 
 		/**
+		 * Application loader, this uses the _loader however it also adds it to the registry if required
 		 *
 		 * @param string $name
 		 * @param string $namespace
@@ -74,6 +84,7 @@
 		}
 
 		/**
+		 * Uses the reflection to create an instance of the object, checks for the constructor and getInstance singleton style class
 		 *
 		 * @param string $name
 		 * @param string $namespace
@@ -113,7 +124,7 @@
 				}
 
 				return $method->invoke(null);
-			} catch (ReflectionClass $e) {
+			} catch (ReflectionException $e) {
 				
 			} catch (ClassNotFoundException $e) {
 				
@@ -141,6 +152,14 @@
 			throw new ClassNotFoundException('Could not find class: ' . $class . ' Resolved file path: ' . $file);
 		}
 
+		/**
+		 * Will either store within the registry or pull out the object from the registry
+		 * 
+		 * @param string $name
+		 * @param string $store
+		 * @param bool $value 
+		 * @return bool
+		 */
 		private static function _registryStore($name, $store, $value = false)
 		{
 			if(!self::$_panda instanceof Panda){
