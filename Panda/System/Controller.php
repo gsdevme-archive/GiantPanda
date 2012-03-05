@@ -40,13 +40,13 @@
 		 * @param mixed $args
 		 * @return object
 		 */
-		protected function model($model, $shared = false, $args = null)
+		protected function library($library, $shared = false, $args = null)
 		{
 			if(!is_array($args)){
 				$args = array($args);
 			}
 
-			return Factory::model($model, $shared, $args);
+			return Factory::library($library, $shared, $args);
 		}		
 
 		/**
