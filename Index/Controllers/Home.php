@@ -19,8 +19,6 @@
 			$this->view('home', array(
 				'feed' => $githubFeed
 			))->render(false, false);
-
-			$this->panda('file')->get('feed');
 		}
 	
 	}
