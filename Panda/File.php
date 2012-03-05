@@ -24,12 +24,11 @@
         private function __construct()
         {
         	$panda = Panda::getInstance();
-
-            if (!is_writable($panda->root . $panda->application . '/Cache/')) {
-                throw new Exception('Cache path is not writeable');
-            }
-
             $this->_path = $panda->root . $panda->application . '/Cache/';
+
+            if (!is_writable($this->_path)) {
+                throw new Exception('Cache path is not writeable, Resolved Path: ' . $this->_path);
+            }
         }
 
         public static function getInstance()
@@ -85,7 +84,7 @@
 
                         return unserialize($data);
                     } catch (ErrorException $e) {
-                        
+
                     }
                 }
             } catch (RuntimeException $e) {
