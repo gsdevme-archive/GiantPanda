@@ -118,7 +118,7 @@
 				// Is it singleton perhaps ? (public static function getInstance)
 				$method = new ReflectionMethod($class->name, 'getInstance');
 
-				// Are you wanting to send arguments to the contructor?
+				// Are you wanting to send arguments to the method?
 				if ($args !== null) {
 					$method->invokeArgs(null, $args);
 				}
