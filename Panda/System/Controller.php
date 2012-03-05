@@ -26,7 +26,7 @@
 		 */
 		protected function model($model, $shared = false, $args = null)
 		{
-			if(!is_array($args)){
+			if(($args !== null) && (!is_array($args))){
 				$args = array($args);
 			}
 
@@ -42,7 +42,7 @@
 		 */
 		protected function library($library, $shared = false, $args = null)
 		{
-			if(!is_array($args)){
+			if(($args !== null) && (!is_array($args))){
 				$args = array($args);
 			}
 
@@ -57,7 +57,7 @@
 		 */
 		protected function panda($class, $args)
 		{
-			if(!is_array($args)){
+			if(($args !== null) && (!is_array($args))){
 				$args = array($args);
 			}
 
