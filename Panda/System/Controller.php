@@ -55,7 +55,7 @@
 		 * @param mixed $args
 		 * @return object
 		 */
-		protected function panda($class, $args)
+		protected function panda($class, $args=null)
 		{
 			if(($args !== null) && (!is_array($args))){
 				$args = array($args);
