@@ -27,7 +27,7 @@
 
 	$panda = Panda::getInstance(array(
 			'root' => $root,
-			'application' => 'Index',
+			'application' => 'Install',
 			'request' => $_SERVER['REQUEST_URI'],
 			'host' => $_SERVER['HTTP_HOST'],
 			'file' => $_SERVER['SCRIPT_NAME'],
