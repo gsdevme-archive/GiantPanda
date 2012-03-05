@@ -7,9 +7,7 @@
 		
 		public function index()
 		{
-
-			echo '<pre>' . print_r($this->model('test'), true) . '</pre>';
-			echo '<pre>' . print_r(\Panda\System\Panda::getInstance(), true) . '</pre>';
+			$this->view('home')->render();
 		}
 
 		public function test()
