@@ -7,12 +7,11 @@
 		
 		public function index()
 		{
-			$this->view('home')->render();
-		}
+			$githubFeed = $this->library('rss')->get('https://github.com/gsdevme/GiantPanda/commits/develop.atom', 'entry');
 
-		public function test()
-		{
-			echo 'hello';
+			$this->view('home', array(
+				'feed' => $githubFeed
+			))->render(false, false);
 		}
 	
 	}
