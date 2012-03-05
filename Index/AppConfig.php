@@ -59,8 +59,18 @@
 		'appRegistry' => (bool)true,
 
 		/**
+		 * You can define your session handler here, this should mostly be used within shared hosting 
+		 * where you dont have full control of where your sessions are stored..
+		 * 
+		 * If you use the built-in sessionHandler with Panda you will need to make sure you have a /Sessions/ (note Cap 'S') folder within your application
+		 */
+		
+		'sessionClass' => '\Panda\SessionHandler',
+
+		/**
 		 * Some example rewrites
 		 */
+		
 		/*'rewrites' => array(
 		    'pattern' => array(
 		        '/^profile\/(.*?)/i',
