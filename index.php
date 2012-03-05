@@ -54,7 +54,7 @@
 		register_shutdown_function(function($panda){
 			$error = error_get_last();
 
-			if($error !== null){
+			if(($error !== null) && ($error['type'] == E_ERROR)){
 				$exception = new ExceptionHandler(new ErrorException('<u>Fatal Error</u> ' . $error['message'], 0, $error['type'], $error['file'], $error['line']), $panda);
 				$exception->handle();
 				$exception->shutdown();				
