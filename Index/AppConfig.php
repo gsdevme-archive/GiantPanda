@@ -57,4 +57,20 @@
 		 * $model = Factory::model('Users');
 		 */
 		'appRegistry' => (bool)true,
+
+		/**
+		 * Some example rewrites
+		 */
+		/*'rewrites' => array(
+		    'pattern' => array(
+		        '/^profile\/(.*?)/i',
+		        '/^news\/(.*?)\/([0-9]{1,11}$)/i',
+		        '/^topic\/(.*?)\/([0-9]{1,11}$)/i',
+		    ),
+		    'replacement' => array(
+		        'profile/index/$1',
+		        'news/article/$1/$2',
+		        'news/topic/$1/$2',
+		    ),
+		)*/		
 	);

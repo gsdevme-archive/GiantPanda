@@ -48,8 +48,24 @@
 		 */
 		public function getRoute()
 		{
-			// If there is a request, explode into array based upon slash, else load default controller/method
-			$route = ( array ) (($this->_request->getRequest()) ? explode('/', $this->_request->getRequest()) : array($this->_panda->defaultController, $this->_panda->defaultMethod));
+			$request = $this->_request->getRequest();
+
+			// is there a request string?
+			if($request){
+				// Do we have any rewrites defined?
+				if((isset($this->_panda->rewrites)) && (!empty($this->_panda->rewrites))){
+					$request = preg_replace($this->_panda->rewrites['pattern'], $this->_panda->rewrites['replacement'], $request);
+					echo '<pre>' . print_r($request, true) . '</pre>';
+					die();
+				}else{
+					$request = $this->_request->getRequest();
+				}
+
+				// If there is a request, explode into array based upon slash, else load default controller/method
+				$route = explode('/', $request);
+			}else{
+				$route = array($this->_panda->defaultController, $this->_panda->defaultMethod);
+			}
 
 			// Check if the first is a folder and not a controller
 			if (is_dir($this->_panda->root . $this->_panda->application . '/Controllers/' . ucfirst($route[0]))) {
