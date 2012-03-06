@@ -70,7 +70,7 @@
 		 * If you use the built-in sessionHandler with Panda you will need to make sure you have a /Sessions/ (note Cap 'S') folder within your application
 		 */
 		
-		'sessionClass' => '\Panda\SessionHandler',
+		//'sessionClass' => '\Panda\SessionHandler',
 
 		/**
 		 * Some example rewrites
