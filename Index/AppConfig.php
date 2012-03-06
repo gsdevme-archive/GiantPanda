@@ -19,6 +19,11 @@
 			// Something like this perhaps?
 			//\Panda\System\ControllerFactory::create(array('home', 'test'));					
 		}),
+
+		'dbDNS' => 'mysql:host=127.0.0.1;dbname=test;port=3306',
+		'dbUser' => 'root',
+		'dbPass' => 'root',
+		'dbInitCmd' => 'SET NAMES \'UTF8\'',
 			
 		/**
 		 * If the requqest is null, or perhaps they are visiting the root of your website what controller should we call ? 
