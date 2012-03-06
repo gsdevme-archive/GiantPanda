@@ -1,6 +1,15 @@
-<?php
+Giant Panda
+=============
 
-	return array(
+Requirements
+---------------------
+- PHP
+- MySQL (if you want to use it)
+- APC (if you want to use it)
+- Mongo (if you want to use it)
+
+Configuration
+---------------------
 		/**
 		 * Debug: This simple enables and disables debugging through the framework, you should leave this turned on
 		 * while developing your application, once you have developed it make sure you customize the debugCallback as 
@@ -70,13 +79,13 @@
 		 * If you use the built-in sessionHandler with Panda you will need to make sure you have a /Sessions/ (note Cap 'S') folder within your application
 		 */
 		
-		//'sessionClass' => '\Panda\SessionHandler',
+		'sessionClass' => '\Panda\SessionHandler',
 
 		/**
 		 * Some example rewrites
 		 */
 		
-		/*'rewrites' => array(
+		'rewrites' => array(
 		    'pattern' => array(
 		        '/^profile\/(.*?)/i',
 		        '/^news\/(.*?)\/([0-9]{1,11}$)/i',
@@ -87,5 +96,16 @@
 		        'news/article/$1/$2',
 		        'news/topic/$1/$2',
 		    ),
-		)*/		
-	);
+		)	
+
+VirtualHosts
+---------------------
+
+    /*
+        To use Virtuahosts you need to copy the /index/ and rename it to your domain name i.e.
+        
+        Facebook.com => FacebookCom
+        Gsdev.me => GsdevMe
+        Foobar.com => FoobarCom
+        Foobar.co.uk => FoobarCoUk
+    */
