@@ -1,0 +1,3 @@
+If you use the File Cache class it will store the serialized objects here...
+
+There is no garage collection of this folder, its upto you to do that... perhaps a cron job

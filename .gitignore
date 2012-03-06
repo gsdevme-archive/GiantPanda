@@ -1,0 +1,10 @@
+.DS_Store
+desktop.ini
+tests/simpletest/*.php
+tests/simpletest/.svn/*
+tests/simpletest/*.xml
+tests/simpletest/docs/*
+tests/simpletest/extensions/*
+tests/simpletest/packages/*
+tests/simpletest/test/*
+tests/simpletest/tutorials/*
