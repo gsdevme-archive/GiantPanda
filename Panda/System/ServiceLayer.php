@@ -1,20 +1,19 @@
 <?php
 
 	/**
-	 * Controller
+	 * ServiceLayer
 	 *
 	 * @author Gavin Staniforth <Email:gsdev@me.com> <Arpanet:http://gsdev.me> @gsphpdev
 	 */
 
 	namespace Panda\System;
 
-	use \Exception;
 	use \Panda\ViewFactory;
 
 	/**
-	 * Abstract class for every controller to give it some simple methods mostly as shortcuts to other parts of the MVC 
+	 * Abstract class for every service layer to give it some simple methods mostly as shortcuts to other parts of the MVC 
 	 */
-	abstract class Controller
+	abstract class ServiceLayer
 	{
 
 		/**
@@ -32,22 +31,6 @@
 
 			return Factory::model($model, $shared, $args);
 		}
-
-		/**
-		 *
-		 * @param string $serviceLayer
-		 * @param string $shared
-		 * @param mixed $args
-		 * @return object
-		 */
-		protected function serviceLayer($serviceLayer, $shared = false, $args = null)
-		{
-			if(($args !== null) && (!is_array($args))){
-				$args = array($args);
-			}
-
-			return Factory::serviceLayer($serviceLayer, $shared, $args);
-		}		
 
 		/**
 		 *
@@ -96,37 +79,6 @@
 
 			header('Location: ' . $url);
 			exit;
-		}
-
-		/**
-		 * This is used to close the HTTP connection early yet keep open the PHP instance,
-		 * this basically allows you render a view while also processing something in the background
-		 * 
-		 * This might be useful if you need to CURL an API yet its not that important to the end user
-		 * 
-		 * @param string $memory
-		 * @param int $seconds 
-		 */
-		protected function close($memory = null, $seconds = null)
-		{
-			if ($memory !== null) {
-				ini_set('memory_limit', $memory);
-			}
-
-			if ($seconds !== null) {
-				set_time_limit($seconds);
-			}
-
-			$size = ob_get_length();
-
-			header("Content-Length: $size");
-			header('Connection: close');
-
-			// Abit nasty but its all required :(
-			try { ob_end_flush(); } catch (Exception $e) { }
-			try { ob_flush(); } catch (Exception $e) { }
-			try { flush(); } catch (Exception $e) { }
-			try { session_write_close(); } catch (Exception $e) { }
 		}
 
 		/**

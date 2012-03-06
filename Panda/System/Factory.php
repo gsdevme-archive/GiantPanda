@@ -41,7 +41,20 @@
 		public static function library($library, $shared = false, array $args = null)
 		{
 			return self::_appLoader($library, '\Libraries\\', $args, $shared);
-		}		
+		}	
+
+		/**
+		 * Will load a serviceLayer either from stratch or will grab it from the registry
+		 *
+		 * @param string $serviceLayer
+		 * @param string $shared
+		 * @param array $args
+		 * @return object
+		 */
+		public static function serviceLayer($serviceLayer, $shared = false, array $args = null)
+		{
+			return self::_appLoader($serviceLayer, '\ServiceLayers\\', $args, $shared);
+		}			
 
 		/**
 		 * Loads a class within the \Panda\ namespace
@@ -54,7 +67,7 @@
 		public static function panda($class, array $args = null)
 		{
 			return self::_loader($class, '\Panda\\', $args, false);
-		}
+		}	
 
 		/**
 		 * Application loader, this uses the _loader however it also adds it to the registry if required
