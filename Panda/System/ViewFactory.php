@@ -60,7 +60,8 @@
 			if (file_exists($file)) {
 				// Create a checksum of the file & build an object to store
 				$this->view = sprintf('%u', crc32($file));
-				$this->views[$this->view] = ( object ) array('file' => $file, 'args' => $args, 'name' => $view, 'static' => $static);
+				// If its a static view then dont bother passing along the argument data
+				$this->views[$this->view] = ( object ) array('file' => $file, 'args' => (($static === false) ? null : $args), 'name' => $view, 'static' => $static);
 
 				return self::$instance;
 			}
