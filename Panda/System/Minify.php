@@ -1,5 +1,11 @@
 <?php
 
+	/**
+	 * Model
+	 *
+	 * @author Gavin Staniforth <Email:gsdev@me.com> <Arpanet:http://gsdev.me> @gsphpdev
+	 */
+
 	namespace Panda\System;
 
 	require_once realpath(dirname(__FILE__)) . '/ThirdParty/MinifyHTML.php';
@@ -15,8 +21,9 @@
 		private $_minifyHtml;
 
 		/**
+		 * Creates a new instance and passes the raw html to the object
 		 *
-		 * @param type $html 
+		 * @param string $html 
 		 */
 		public function __construct($html)
 		{
@@ -24,8 +31,9 @@
 		}
 
 		/**
+		 * Returns the minified string
 		 *
-		 * @return type 
+		 * @return string
 		 */
 		public function process()
 		{

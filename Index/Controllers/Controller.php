@@ -8,6 +8,9 @@
 
 	namespace Controllers;
 	
+	/**
+	 * Abstract controller for the Application
+	 */
 	abstract class Controller extends \Panda\System\Controller
 	{
 		

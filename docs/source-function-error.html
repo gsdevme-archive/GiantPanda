@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.5.0" />
+	<meta name="robots" content="noindex" />
+
+	<title>File Web/Install.php | Giant Panda Docs</title>
+
+	<script type="text/javascript" src="resources/combined.js?2300626518"></script>
+	<script type="text/javascript" src="elementlist.js?4077223455"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1252480456" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Controllers.html">Controllers</a>
+						</li>
+				<li><a href="namespace-Libraries.html">Libraries</a>
+						</li>
+				<li><a href="namespace-Models.html">Models</a>
+						</li>
+				<li class="active"><a href="namespace-None.html">None</a>
+						</li>
+				<li><a href="namespace-Panda.html">Panda</a>
+						<span></span>
+						<ul>
+				<li><a href="namespace-Panda.System.html">System</a>
+						<span></span>
+						<ul>
+				<li><a href="namespace-Panda.System.Exceptions.html">Exceptions</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-ServiceLayers.html">ServiceLayers</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-MinifyHTML.html">MinifyHTML</a></li>
+			</ul>
+
+
+
+
+
+			<h3>Functions</h3>
+			<ul>
+				<li class="active"><a href="function-error.html">error</a></li>
+				<li><a href="function-ifsetor.html">ifsetor</a></li>
+				<li><a href="function-isCli.html">isCli</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-None.html" title="Summary of None"><span>Namespace</span></a>
+			</li>
+			<li>
+				<a href="function-error.html" title="Summary of error"><span>Function</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<pre><code><a href="#1" id="1" class="l"> 1: </a><span class="xlang">&lt;?php</span>
+<a href="#2" id="2" class="l"> 2: </a>
+<a href="#3" id="3" class="l"> 3: </a>    <span class="php-keyword1">function</span> error(<span class="php-var">$message</span>)
+<a href="#4" id="4" class="l"> 4: </a>    {
+<a href="#5" id="5" class="l"> 5: </a>        <span class="php-keyword1">echo</span> <span class="php-quote">'&lt;span style=&quot;font-size:18px;line-height:32px;background:#ff0000;padding:10px;&quot;&gt;&lt;strong&gt;Error &lt;/strong&gt;'</span>.<span class="php-var">$message</span>.<span class="php-quote">'&lt;/span&gt;'</span>;
+<a href="#6" id="6" class="l"> 6: </a>    }
+<a href="#7" id="7" class="l"> 7: </a>
+<a href="#8" id="8" class="l"> 8: </a>    <span class="php-keyword1">if</span> (PHP_VERSION_ID &lt; <span class="php-num">50303</span>)
+<a href="#9" id="9" class="l"> 9: </a>        error(<span class="php-quote">'Your trying to run me on a PHP version below PHP 5.3.3... this framework requires PHP 5.3.3+'</span>);
+<a href="#10" id="10" class="l">10: </a>
+<a href="#11" id="11" class="l">11: </a>    <span class="php-keyword1">if</span> (<span class="php-keyword2">get_magic_quotes_gpc</span>())
+<a href="#12" id="12" class="l">12: </a>        error(<span class="php-quote">'This server has magic quotes enabeld... hmm thats not good'</span>);
+<a href="#13" id="13" class="l">13: </a>
+<a href="#14" id="14" class="l">14: </a>    <span class="php-keyword1">if</span>(<span class="php-var">$_SERVER</span>[<span class="php-quote">'REQUEST_URI'</span>] !== <span class="php-quote">'/index.php'</span>)
+<a href="#15" id="15" class="l">15: </a>        error(<span class="php-quote">'Server doesnt look like its setup right, &lt;a href=&quot;https://github.com/gsdevme/GiantPanda/wiki/Server-Setup&quot;&gt;Read More&lt;/a&gt;'</span>);
+<a href="#16" id="16" class="l">16: </a>
+<a href="#17" id="17" class="l">17: </a>
+<a href="#18" id="18" class="l">18: </a>    <span class="php-keyword1">echo</span> <span class="php-quote">'&lt;div&gt;&lt;p&gt;We have done a few checks and hopefully your system is ok and ready to run GiantPanda&lt;br/&gt; if you have some errors above it might not work corretly, you can still try it though&lt;/p&gt;&lt;/div&gt;'</span>;
+<a href="#19" id="19" class="l">19: </a>
+<a href="#20" id="20" class="l">20: </a>    <span class="php-keyword1">echo</span> <span class="php-quote">'&lt;h2&gt;To use GiantPanda, remove Line 4 within Web/index.php, &quot;require \'./install.php\';exit;&quot;&lt;/h2&gt;'</span>;</code></pre>
+
+	<div id="footer">
+		Giant Panda Docs API documentation generated by <a href="http://apigen.org">ApiGen 2.5.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

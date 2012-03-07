@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.5.0" />
+
+	<title>Class Panda\System\Factory | Giant Panda Docs</title>
+
+	<script type="text/javascript" src="resources/combined.js?2300626518"></script>
+	<script type="text/javascript" src="elementlist.js?4077223455"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?1252480456" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-Controllers.html">Controllers</a>
+						</li>
+				<li><a href="namespace-Libraries.html">Libraries</a>
+						</li>
+				<li><a href="namespace-Models.html">Models</a>
+						</li>
+				<li><a href="namespace-None.html">None</a>
+						</li>
+				<li class="active"><a href="namespace-Panda.html">Panda</a>
+						<span></span>
+						<ul>
+				<li class="active"><a href="namespace-Panda.System.html">System</a>
+						<span></span>
+						<ul>
+				<li><a href="namespace-Panda.System.Exceptions.html">Exceptions</a>
+						</li>
+							</ul></li></ul></li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+				<li><a href="namespace-ServiceLayers.html">ServiceLayers</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr />
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-Panda.System.Controller.html">Controller</a></li>
+				<li><a href="class-Panda.System.ControllerFactory.html">ControllerFactory</a></li>
+				<li><a href="class-Panda.System.ExceptionHandler.html">ExceptionHandler</a></li>
+				<li class="active"><a href="class-Panda.System.Factory.html">Factory</a></li>
+				<li><a href="class-Panda.System.Minify.html">Minify</a></li>
+				<li><a href="class-Panda.System.Model.html">Model</a></li>
+				<li><a href="class-Panda.System.Panda.html">Panda</a></li>
+				<li><a href="class-Panda.System.Registry.html">Registry</a></li>
+				<li><a href="class-Panda.System.Request.html">Request</a></li>
+				<li><a href="class-Panda.System.Router.html">Router</a></li>
+				<li><a href="class-Panda.System.ServiceLayer.html">ServiceLayer</a></li>
+				<li><a href="class-Panda.System.View.html">View</a></li>
+				<li><a href="class-Panda.System.ViewFactory.html">ViewFactory</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-Panda.System.html" title="Summary of Panda\System"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Factory</h1>
+
+	<div class="description">
+	
+<p>Factory class, does as the pattern does, it creates objects, model() creates
+models etc</p>
+
+	</div>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-Panda.html">Panda</a>\<a href="namespace-Panda.System.html">System</a><br />
+
+		<b>Located at</b> <a href="source-class-Panda.System.Factory.html#18" title="Go to source code">Panda/System/Factory.php</a><br />
+	</div>
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="model" id="_model">
+
+		<td class="attributes"><code>
+			
+			 public static
+			object
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_model">#</a>
+		<code><a href="source-class-Panda.System.Factory.html#26" title="Go to source code">model</a>( <span>string <var>$model</var></span>, <span>string <var>$shared</var> = <span class="php-keyword1">false</span></span>, <span>array <var>$args</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Will load the model, either from stratch or will grab it from the
+registry</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Will load the model, either from stratch or will grab it from the
+registry</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$model</var></dt>
+					<dd><code>string</code></dd>
+					<dt><var>$shared</var></dt>
+					<dd><code>string</code></dd>
+					<dt><var>$args</var></dt>
+					<dd><code>array</code></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>object</code><br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="library" id="_library">
+
+		<td class="attributes"><code>
+			
+			 public static
+			object
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_library">#</a>
+		<code><a href="source-class-Panda.System.Factory.html#39" title="Go to source code">library</a>( <span>string <var>$library</var></span>, <span>string <var>$shared</var> = <span class="php-keyword1">false</span></span>, <span>array <var>$args</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Will load the library, either from stratch or will grab it from the
+registry</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Will load the library, either from stratch or will grab it from the
+registry</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$library</var></dt>
+					<dd><code>string</code></dd>
+					<dt><var>$shared</var></dt>
+					<dd><code>string</code></dd>
+					<dt><var>$args</var></dt>
+					<dd><code>array</code></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>object</code><br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="serviceLayer" id="_serviceLayer">
+
+		<td class="attributes"><code>
+			
+			 public static
+			object
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_serviceLayer">#</a>
+		<code><a href="source-class-Panda.System.Factory.html#52" title="Go to source code">serviceLayer</a>( <span>string <var>$serviceLayer</var></span>, <span>string <var>$shared</var> = <span class="php-keyword1">false</span></span>, <span>array <var>$args</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Will load a serviceLayer either from stratch or will grab it from the
+registry</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Will load a serviceLayer either from stratch or will grab it from the
+registry</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$serviceLayer</var></dt>
+					<dd><code>string</code></dd>
+					<dt><var>$shared</var></dt>
+					<dd><code>string</code></dd>
+					<dt><var>$args</var></dt>
+					<dd><code>array</code></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>object</code><br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="panda" id="_panda">
+
+		<td class="attributes"><code>
+			
+			 public static
+			object
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_panda">#</a>
+		<code><a href="source-class-Panda.System.Factory.html#65" title="Go to source code">panda</a>( <span>string <var>$class</var></span>, <span>array <var>$args</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Loads a class within the \Panda\ namespace</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Loads a class within the \Panda\ namespace</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$class</var></dt>
+					<dd><code>string</code></dd>
+					<dt><var>$args</var></dt>
+					<dd><code>array</code></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>object</code><br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><code><a href="class-Panda.System.Exceptions.FactoryException.html">Panda\System\Exceptions\FactoryException</a></code></code><br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		Giant Panda Docs API documentation generated by <a href="http://apigen.org">ApiGen 2.5.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
