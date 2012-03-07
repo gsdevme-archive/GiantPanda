@@ -49,7 +49,7 @@
 		}
 
 		/**
-		 * Decrypt will decrypt a Blowfish encrypted string, you must private both Private & Public keys
+		 * Decrypt will decrypt a Blowfish encrypted string, you must provide both Private & Public keys
 		 * 
 		 * @param string $privateKey
 		 * @param string $publicKey
