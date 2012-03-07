@@ -5,8 +5,8 @@
 	class Dummy extends Model
 	{
 
-		public function __construct()
+		public function myMethod()
 		{
-			echo '<pre>' . print_r(__METHOD__, true) . '</pre>';
+			echo 'Shared Model Called:<pre>' . print_r(__METHOD__, true) . '</pre>';
 		}
 	}
