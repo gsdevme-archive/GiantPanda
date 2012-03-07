@@ -55,8 +55,6 @@
 				// Do we have any rewrites defined?
 				if((isset($this->_panda->rewrites)) && (!empty($this->_panda->rewrites))){
 					$request = preg_replace($this->_panda->rewrites['pattern'], $this->_panda->rewrites['replacement'], $request);
-					echo '<pre>' . print_r($request, true) . '</pre>';
-					die();
 				}else{
 					$request = $this->_request->getRequest();
 				}
