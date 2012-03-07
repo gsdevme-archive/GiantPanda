@@ -71,7 +71,7 @@
 		 */
 		public function element($name, $shared = false, array $args=null, $static = false)
 		{
-			$file = $this->panda->root . (($shared !== false) ? $this->panda->application : 'Shared' ) . '/Elements/' . $name . (($static !== false) ? '.html' : '.php');
+			$file = $this->panda->root . (($shared === false) ? $this->panda->application : 'Shared' ) . '/Elements/' . $name . (($static !== false) ? '.html' : '.php');
 
 			if($args !== null) {
 				if($this->args !== null){
