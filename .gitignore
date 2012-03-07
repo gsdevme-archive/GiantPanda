@@ -8,3 +8,4 @@ tests/simpletest/extensions/*
 tests/simpletest/packages/*
 tests/simpletest/test/*
 tests/simpletest/tutorials/*
+Dummy/*

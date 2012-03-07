@@ -1,5 +1,11 @@
 <?php
 
+	/**
+	 * Factory
+	 *
+	 * @author Gavin Staniforth <Email:gsdev@me.com> <Arpanet:http://gsdev.me> @gsphpdev
+	 */
+
 	namespace Panda\System;
 
 	use Panda\System\Exceptions\FactoryException;

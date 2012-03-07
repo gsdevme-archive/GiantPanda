@@ -55,12 +55,13 @@
 		public function addView($view, array $args = null, $shared = false, $static = false)
 		{
 			// File location, changes based on shared or static
-			$file = $this->panda->root . (($shared === false) ? $this->panda->application . '/Views/' : '/Shared/Views/') . $view . (($static === false) ? '.php' : '.html');
+			$file = $this->panda->root . (($shared === false) ? $this->panda->application . '/Views/' : 'Shared/Views/') . $view . (($static === false) ? '.php' : '.html');
 
 			if (file_exists($file)) {
 				// Create a checksum of the file & build an object to store
 				$this->view = sprintf('%u', crc32($file));
-				$this->views[$this->view] = ( object ) array('file' => $file, 'args' => $args, 'name' => $view, 'static' => $static);
+				// If its a static view then dont bother passing along the argument data
+				$this->views[$this->view] = ( object ) array('file' => $file, 'args' => (($static === false) ? $args : null), 'name' => $view, 'static' => $static);
 
 				return self::$instance;
 			}

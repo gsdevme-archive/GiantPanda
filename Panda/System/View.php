@@ -71,17 +71,22 @@
 		 */
 		public function element($name, $shared = false, array $args=null, $static = false)
 		{
-			$file = $this->panda->root . (($shared !== false) ? $this->panda->application : 'Shared' ) . '/Elements/' . $name . (($static !== false) ? '.html' : '.php');
+			$file = $this->panda->root . (($shared === false) ? $this->panda->application : 'Shared' ) . '/Elements/' . $name . (($static !== false) ? '.html' : '.php');
 
-			if($args !== null) {
-				if($this->args !== null){
-					extract($this->args);
+			if($static === false){
+				if($args === null) {
+					if($this->args !== null){
+						extract($this->args);
+					}
+				}else{
+					extract($args);
 				}
 			}
-
+			
 			if(file_exists($file)) {
-				require $file;
-			}
+				return require $file;
+			}			
+
 
 			throw new ViewException('Could not find ' . $name . ' Element, resolved path ' . $file, null, null, 500);
 		}
