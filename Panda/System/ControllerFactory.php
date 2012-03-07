@@ -14,6 +14,9 @@
 	use \Panda\System\Exceptions\RouterException;
 	use \Panda\System\Exceptions\ClassNotFoundException;
 
+	/**
+	 * ControllerFactory, acts as a object factory for all Controllers
+	 */
 	class ControllerFactory
 	{
 

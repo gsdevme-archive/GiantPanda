@@ -2,6 +2,10 @@
 
 	namespace Controllers;
 
+	/**
+	 * Home controller, this is the default controller for this application... 
+	 * unless you've changed the config that is
+	 */
 	class Home extends Controller
 	{
 		

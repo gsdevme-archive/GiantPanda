@@ -6,6 +6,9 @@
 	use \DOMDocument;
 	use \stdClass;
 
+	/**
+	 * Quick class to pull down the latest commits from the RSS feed
+	 */
 	class Rss
 	{
 
