@@ -46,7 +46,7 @@
 			'file' => $_SERVER['SCRIPT_NAME'],
 			'memory' => memory_get_usage(),
 			'time' => microtime(true),
-			'version' => '1.0.5',
+			'version' => '1.0.6',
 
 			// The properties below are to be overrided within your AppConfig
 			'debug' => ( bool ) false,
