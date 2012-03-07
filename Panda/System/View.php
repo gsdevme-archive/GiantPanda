@@ -80,7 +80,7 @@
 			}
 
 			if(file_exists($file)) {
-				require $file;
+				return require $file;
 			}
 
 			throw new ViewException('Could not find ' . $name . ' Element, resolved path ' . $file, null, null, 500);
