@@ -55,7 +55,7 @@
 		public function addView($view, array $args = null, $shared = false, $static = false)
 		{
 			// File location, changes based on shared or static
-			$file = $this->panda->root . (($shared === false) ? $this->panda->application . '/Views/' : '/Shared/Views/') . $view . (($static === false) ? '.php' : '.html');
+			$file = $this->panda->root . (($shared === false) ? $this->panda->application . '/Views/' : 'Shared/Views/') . $view . (($static === false) ? '.php' : '.html');
 
 			if (file_exists($file)) {
 				// Create a checksum of the file & build an object to store
