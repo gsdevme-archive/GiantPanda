@@ -10,6 +10,9 @@ Requirements
 
 Configuration
 ---------------------
+```php
+<?php
+	return array(
 		/**
 		 * Debug: This simple enables and disables debugging through the framework, you should leave this turned on
 		 * while developing your application, once you have developed it make sure you customize the debugCallback as 
@@ -97,6 +100,7 @@ Configuration
 		        'news/topic/$1/$2',
 		    ),
 		)	
+```
 
 VirtualHosts
 ---------------------
