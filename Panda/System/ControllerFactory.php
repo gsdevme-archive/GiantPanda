@@ -49,7 +49,7 @@
 			}
 
 			// Lets check our Method is public and our class is instantiable :)
-			if (($method->isPublic()) && ($class->isInstantiable()) && (!$class->isConstructor())) {
+			if (($method->isPublic()) && ($class->isInstantiable()) && (!$method->isConstructor())) {
 				// Get Panda instance
 				$panda = Panda::getInstance();
 
