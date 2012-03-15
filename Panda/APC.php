@@ -3,6 +3,7 @@
     namespace Panda;
 
     use Panda\System\Panda;
+    use \Exception;
 
     class APC implements iCache
     {

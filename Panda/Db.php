@@ -90,7 +90,7 @@
                         return ( int ) $stmt->rowCount();
                     }
 
-                    throw new ModuleException('Query failed, Query: ' . $stmt->queryString, 500, $e);
+                    throw new Exception('Query failed, Query: ' . $stmt->queryString, 500, $e);
                 } catch (PDOException $e) {
                     switch ($e->getCode()) {
                         // This is a Integrity constraint violation, so we return false
@@ -102,11 +102,11 @@
                             return null;
                     }
 
-                    throw new ModuleException('Looks like your query syntax is wrong, Query: ' . $query, 500, $e);
+                    throw new Exception('Looks like your query syntax is wrong, Query: ' . $query, 500, $e);
                 }
             }
 
-            throw new ModuleException('No arguments given to query()', 500, null);
+            throw new Exception('No arguments given to query()', 500, null);
         }
 
         /**
