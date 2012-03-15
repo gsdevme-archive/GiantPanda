@@ -12,7 +12,7 @@
 		error('This server has magic quotes enabeld... hmm thats not good');
 
 	if($_SERVER['REQUEST_URI'] !== '/index.php')
-		error('Server doesnt look like its setup right, <a href="https://github.com/gsdevme/GiantPanda/wiki/Server-Setup">Read More</a>');
+		error('Looks like you are not using a mod_rewrite, you need to visit /web/index.php/, <a href="https://github.com/gsdevme/GiantPanda/wiki/Server-Setup">Read More</a>');
 
 
 	echo '<div><p>We have done a few checks and hopefully your system is ok and ready to run GiantPanda<br/> if you have some errors above it might not work corretly, you can still try it though</p></div>';
