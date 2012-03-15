@@ -56,7 +56,7 @@
 
                 return ( bool ) true;
             } catch (RuntimeException $e) {
-                throw new ModuleException('Failed to create cache file', 500, $e);
+                throw new Exception('Failed to create cache file', 500, $e);
             }
         }
 
