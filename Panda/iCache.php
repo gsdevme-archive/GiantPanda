@@ -1,14 +1,14 @@
 <?php
 
-    namespace Panda;
+	namespace Panda;
 
-    interface iCache
-    {
-        public function set($key, $data, $time);
+	interface iCache
+	{
+		public function set($key, $data, $time);
 
-        public function get($key, $callback=null, array $args=null);
-        
-        public function delete($key);
-        
-        public function flush();
-    }
+		public function get($key, $callback=null, array $args=null);
+		
+		public function delete($key);
+		
+		public function flush();
+	}
