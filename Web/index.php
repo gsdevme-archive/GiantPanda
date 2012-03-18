@@ -46,7 +46,7 @@
 			'file' => $_SERVER['SCRIPT_NAME'],
 			'memory' => memory_get_usage(),
 			'time' => microtime(true),
-			'version' => '1.0.7',
+			'version' => '1.0.8',
 
 			// The properties below are to be overrided within your AppConfig
 			'debug' => ( bool ) false,
@@ -67,7 +67,7 @@
 		register_shutdown_function(function($panda){
 			$error = error_get_last();
 
-			if(($error !== null) && ($error['type'] == E_ERROR | E_COMPILE_ERROR | E_CORE_ERROR | E_RECOVERABLE_ERROR)){
+			if(($error !== null) && (($error['type'] == E_ERROR) || ($error['type'] ==  E_COMPILE_ERROR) || ($error['type'] ==  E_RECOVERABLE_ERROR)  || ($error['type'] ==  E_CORE_ERROR))){
 				$exception = new ExceptionHandler(new ErrorException('<u>Fatal Error</u> ' . $error['message'], 0, $error['type'], $error['file'], $error['line']), $panda);
 				$exception->handle();
 				$exception->shutdown();				
