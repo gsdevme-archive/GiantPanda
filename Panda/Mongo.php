@@ -1,26 +1,26 @@
 <?php
 
-    namespace Panda;
+	namespace Panda;
 
-    use Panda\System\Panda;
+	use Panda\System\Panda;
 
-    class Mongo
-    {
+	class Mongo
+	{
 
-        private static $_instance;
+		private static $_instance;
 
-        private function __construct()
-        {
+		private function __construct()
+		{
 
-        }
+		}
 
-        public static function getInstance($server='mongodb://localhost:27017', array $options=null)
-        {
-            if (!self::$_instance instanceof \Mongo) {
-                self::$_instance = new \Mongo($server, $options);
-            }
+		public static function getInstance($server='mongodb://localhost:27017', array $options=null)
+		{
+			if (!self::$_instance instanceof \Mongo) {
+				self::$_instance = new \Mongo($server, $options);
+			}
 
-            return self::$_instance;
-        }
+			return self::$_instance;
+		}
 
-    }
+	}
