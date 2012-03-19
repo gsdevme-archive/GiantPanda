@@ -79,7 +79,7 @@
 				return require $file;
 			}
 
-			throw new ClassNotFoundException('Could not find class: ' . $class . ' Resolved file path: ' . $file);
+			return (bool)false;
 		}
 
 		/**
